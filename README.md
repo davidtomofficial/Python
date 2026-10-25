@@ -1,48 +1,58 @@
-# Python-Scripts
+# Python Scripts
 
 Historical Python learning projects and experiments by [David Tom](https://github.com/davidtomofficial), preserved for educational reference and portfolio review.
 
-**Status: Historical educational examples.** The setup notes and project descriptions reflect the original work; compatibility and correctness have not been revalidated against current environments. This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings.
+**Status: Historical educational examples.** This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings. Focused behavior fixes have offline regression coverage; live search-service compatibility and the installed third-party dependencies have not been validated end to end.
 
-## Projects
+The original `googleSearch.py` header names Python 3.6; the SynonymSearcher notebook records Python 3.11.3. These remain historical environment details, not a verified current compatibility range.
 
-- [SynonymSearcher](SynonymSearcher/README.md): a synonym-generation and web-search experiment with a notebook and Python export.
-- [googleSearch](googleSearch/README.md): an interactive web-search script.
+| Project | Purpose |
+| --- | --- |
+| [SynonymSearcher](SynonymSearcher/) | Generate keyword/synonym combinations and find a search result for each query. Includes a Python script and a Jupyter notebook. |
+| [googleSearch](googleSearch/) | Read search queries interactively or from standard input and print results. |
 
-## Getting Started
+## Getting started
 
-Clone or download this repository and read the selected project's README before installing dependencies. The original `googleSearch.py` header names Python 3.6; the SynonymSearcher notebook records Python 3.11.3. These are historical environment details, not a verified current compatibility range. Use the [SynonymSearcher notebook](SynonymSearcher/SynonymSearcher.ipynb) for that project; its `.py` export includes IPython-specific commands.
+Install Python 3, clone this repository, and create a virtual environment:
 
-### Historical prerequisites
+```sh
+git clone https://github.com/davidtomofficial/Python.git
+cd Python
+python3 -m venv .venv
+```
 
-In order to run any Python based scripts you must first have installed Python as well as any dependencies for your project.
-You can download Python many various ways:
-1. Python's website: https://www.python.org/
-2. Repository: Most if not all linux distros have a repository containing python that can be accessed using the below
-example commands (more information can be found by accessing the manual/help page for your operating system):
- - For Debian/GNU Linux: $ sudo apt-get install python36
- - RedHat: $ sudo yum install python36
+Activate it with `source .venv/bin/activate` on Linux/macOS or
+`.venv\Scripts\Activate.ps1` in Windows PowerShell. Use `python` instead of
+`python3` if that is the name of your Python 3 interpreter.
 
-Occasionally scripts may require dependencies; the easiest way to properly install them is by:
-1. Searching github repositories and clone/download the appropriate .zip for your project.  This can be done in
- - a web browser
- - **or**
- - thru the "git clone ssh://git@github.com/[username]/[repository-name].git" command.  Once downloaded, import the library
-and restart your IDE.
+```sh
+python -m pip install -r requirements.txt
+python googleSearch/googleSearch.py
+```
 
-### Original installation outline
+SynonymSearcher also needs local NLTK corpora. See its
+[setup instructions](SynonymSearcher/README.md). Dependency installation and
+corpus downloads are explicit setup steps; importing the scripts does not install
+packages, download corpora, prompt for input, or submit searches.
 
-1. Download python into an easily accesible directory
-2. Install as needed
-3. Import any libraries/dependencies for your project (most if not all projects will state this in the first few lines)
-4. Clone the files from the repository.
-5. Upload the code to your Device (Laptop, Raspberry Pi, Desktop, etc.).
-6. Contribute to further developments.
-7. Repeat as needed!
+Searches require an internet connection and depend on the external search service.
+The `googlesearch-python` package scrapes search results; this project does not use
+Google's official search API. Review the service's terms and limits before use.
+
+## Tests
+
+Run the offline behavior tests from this directory:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+Tests replace external search and language dependencies with deterministic fakes;
+they do not make network requests or verify live search-service compatibility.
 
 ## Contributing
 
-See the repository-local [contribution guide](CONTRIBUTING.md) for reporting issues and submitting focused pull requests while preserving the educational context.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution process.
 
 ## Authors
 

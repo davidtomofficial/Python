@@ -1,47 +1,29 @@
- # googleSearch.py
+# Google Search example
 
-> Historical educational example. See the [repository overview](../README.md) for context and current documentation status.
+> Historical educational example. See the [repository overview](../README.md) for context and validation limits.
 
+This learning script reads a query, prints results from `googlesearch-python`, and
+waits 3–10 seconds before accepting the next query. It skips blank input and exits
+cleanly on `exit()` or end of input.
 
-This repository contains a script to automate searches into the Google's Search Engine.
-These projects are intended to be an easy way to practice coding while requiring little to no knowledge of programming.
-Check the README.md files within each directory for more information.
+From the repository root, after completing the [setup](../README.md):
 
-## Getting Started
+```sh
+python googleSearch/googleSearch.py
+```
 
-Just clone/download the files and any dependencies for your project then run the script using the "python3 googleSearch.py".
+You can also read queries from a file with one query per line:
 
-*pipe searches using:
-  - $ echo [search_term] | python3 googleSearch.py
-  - **or**
-  - $ echo [file.ext] | python3 googleSearch.py
+```sh
+python googleSearch/googleSearch.py < googleSearch/randomSearchTerms.txt
+```
 
-### Historical prerequisites
+Each nonblank line triggers a real network search. The package scrapes search
+results and is not Google's official search API; spacing requests does not
+guarantee compliance with service limits or availability.
 
-In order to run any Python based scripts you must first have installed Python as well as any dependencies for your project.
-You can download Python many various ways:
-1. Python's website: https://www.python.org/
-2. Repository: Most if not all linux distros have a repository containing python that can be accessed using the below
-example commands (more information can be found by accessing the manual/help page for your operating system):
-  - For Debian/GNU Linux: $ sudo apt-get install python36
-  - RedHat: $ sudo dnf install python36
-
-Occasionally scripts may require dependencies; the easiest way to properly install them is by:
-1. Searching github repositories and clone/download the appropriate .zip for your project.  This can be done in:
-  - a web browser
-  - **or**
-  - thru the "git clone ssh://git@github.com/[username]/[repository-name].git	" command.  Once downloaded, import the library
-and restart your IDE.
-
-### Example installation
-
-1. Download python into an easily accesible directory
-2. Install as needed
-3. Import any libraries/dependencies for your project (most if not all projects will state this in the first few lines)
-4. Clone the files from the repository.
-5. Upload the code to your Device (Laptop, Raspberry Pi, Desktop, etc.).
-6. Contribute to further developments.
-7. Repeat as needed!
+Importing the script does not prompt or submit searches. Call `main()` or run it as
+a script to start the interactive loop.
 
 ## Contributing
 
