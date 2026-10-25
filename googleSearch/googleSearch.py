@@ -22,25 +22,28 @@ from googlesearch import search
 import random
 import time
 
-## Input Phase
-print("Exit loop by typing 'exit()' or wait for End of File")
-query = input("Enter Your search: ")
+def main():
+    print("Exit by typing 'exit()' or reaching End of File")
+    while True:
+        try:
+            query = input("Enter your search: ").strip()
+        except EOFError:
+            break
+        if query == "exit()":
+            break
+        if not query:
+            continue
 
-## Processing and Output Phase
-# continue loop until user inputs exit value or until EOF
-while (query != "exit()"):
-    # outputs search query
-    for i in (search(query, advanced=True)):
-        print(i)
+        for result in search(query, advanced=True):
+            print(result)
 
-    # delay will prevent abuse
-    delay = round(random.uniform(3, 10), 2)    # random values chosen
-    time.sleep(delay)
+        # Space successive searches; remote service limits still apply.
+        time.sleep(round(random.uniform(3, 10), 2))
 
-    # reinsert query for new search
-    query = input("\nEnter your search: ")
+    print("Program terminating...")
 
-# End program
-print("Program terminating...")
+
+if __name__ == '__main__':
+    main()
 
 # EOF: googleSearch.py

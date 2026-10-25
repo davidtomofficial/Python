@@ -6,7 +6,7 @@
 # <b>Task: </b>*This Python 3 program first collects a set of user-defined words, then uses the Natural Language Toolkit (NLTK) to find their synonyms. Subsequently, it searches for and outputs relevant articles and web links associated with these keywords and their synonyms, providing a comprehensive resource compilation related to the input terms*.
 
 # ### Introduction
-# Using a proof of concept, this project boradens the scope of data analysis and web scraping capabilities for additional free, open-source initiatives.  By integrating the Natural Language Toolkit (NLTK) with the Google-Search library, we harness Google's API to efficiently find and display synonyms, enhancing our data processing capabilities.
+# Using a proof of concept, this project boradens the scope of data analysis and web scraping capabilities for additional free, open-source initiatives.  By integrating the Natural Language Toolkit (NLTK) with the Google-Search library, we use the googlesearch-python scraper to efficiently find and display synonyms, enhancing our data processing capabilities.
 # 
 # The application of proper Data Science methods and techniques in this project allows for efficient resource allocation, facilitating the achievement of objectives in a cost-effective and timely manner.  This approach not only streamlines processes but also yields significant economic benefits, such as reduced operational costs and improved data-driven decision-making.
 # 
@@ -49,16 +49,15 @@
 # In[1]:
 
 
-get_ipython().run_cell_magic('capture', '', 'import sys\n!{sys.executable} -m pip install --upgrade pip\n!pip install --upgrade pyspellchecker\n!pip install --upgrade googlesearch-python nltk\n')
+# Install dependencies explicitly before running this script:
+# python3 -m pip install -r requirements.txt
 
 
 # In[2]:
 
 
-import nltk
-nltk.download('omw-1.4')
-nltk.download('wordnet')
-nltk.download('verbnet')
+# Download the corpora explicitly during setup, not when importing this module:
+# python3 -m nltk.downloader omw-1.4 wordnet verbnet
 
 
 # In[3]:
@@ -145,9 +144,10 @@ def check_spelling(words):
     for word in words:
         if word in misspelled:
             # Get the most likely correction
-            corrected_word = spell.correction(word)
+            corrected_word = spell.correction(word) or word
             corrected_words.append(corrected_word)
-            print(f"Correcting '{word}' to '{corrected_word}' ")
+            if corrected_word != word:
+                print(f"Correcting '{word}' to '{corrected_word}' ")
         else:
             corrected_words.append(word)
             
@@ -182,13 +182,24 @@ def process_user_input():
 
 
 # Obtain all combinations of words and synonyms
-def get_all_combinations(words_list, synonyms_dict):
+def get_all_combinations(words_list, synonyms_dict, max_combinations=100):
+    if max_combinations < 1:
+        raise ValueError('max_combinations must be positive')
+    if not words_list:
+        return []
     all_combinations = []
+    combination_count = 1
     for word in words_list:
-        # Combine original/corrected words with its synonyms
-        options = synonyms_dict.get(word, [word])
-        all_combinations.append(set(options))
-    return list(set(itertools.product(*all_combinations)))
+        # Keep the input word even when WordNet has no matching synonyms.
+        options = sorted(set([word] + list(synonyms_dict.get(word, []))))
+        combination_count *= len(options)
+        if combination_count > max_combinations:
+            raise ValueError(
+                f'Too many search combinations (limit: {max_combinations}). '
+                'Use fewer input words or a smaller synonym set.'
+            )
+        all_combinations.append(options)
+    return list(itertools.product(*all_combinations))
 
 
 # ##### NLTK
@@ -247,57 +258,34 @@ def print_search_results(search_results):
 # In[ ]:
 
 
-# Example:
-words_list, words_dict = process_user_input()
-corrected_words_list = check_spelling(words_list)
+def main():
+    words_list, _ = process_user_input()
+    corrected_words_list = check_spelling(words_list)
+    if not corrected_words_list:
+        print('No words supplied; no searches were made.')
+        return
 
-all_words = set(words_list + corrected_words_list)
+    # Mapping each word (original or corrected) to its synonyms
+    all_words = set(words_list + corrected_words_list)
+    synonyms_dict = {word: search_wordnet(word) for word in all_words}
+    try:
+        all_unique_combinations = get_all_combinations(corrected_words_list, synonyms_dict)
+    except ValueError as error:
+        print(error)
+        return
 
-# Mapping each word (original or corrected) to its synonyms
-synonyms_dict = {word: search_wordnet(word) for word in all_words}
+    unique_search_queries = [' '.join(combination) for combination in all_unique_combinations]
+    search_results = perform_search(unique_search_queries)
+    print_search_results(search_results)
 
-# Get all combinations
-# all_unique_combinations = get_all_combinations(words_list, synonyms_dict)
-all_unique_combinations = get_all_combinations(corrected_words_list, synonyms_dict)
 
-# Combine words into search queries
-unique_search_queries = [' '.join(combination) for combination in all_unique_combinations]
-
-# Perform searches for each combined query
-search_results = perform_search(unique_search_queries)
-print_search_results(search_results)
+if __name__ == '__main__':
+    main()
 
 
 # ## Complexity<a id="12"></a>
-# To calculate the complexity of the system based on the given variables, we can develop an equation that takes into account the number of input words, the number of corrected words, the number of synonyms for each word, and the number of searches made. The complexity primarily depends on how these factors interact to produce the final number of results or operations.
-# 
-# Let's define the variables as follows:
-# 
-# - n = number of input words
-# - c = number of corrected words (assuming each input word can be corrected)
-# - s = number of synonyms per word
-# - m = number of searches made
-# 
-# The complexity equation can be outlined as:
-# 
-# - Complexity=(n×s+c)×m
-# 
-# Here's the rationale behind the equation:
-# 
-# Input Words and Synonyms: For each input word, we generate 's' synonyms. So, the total number of outcomes from this part is n×s.
-# 
-# Corrected Words: We add the number of corrected words, 'c'. This assumes that each input word might have a corrected version, which is considered as an additional outcome.
-# 
-# Searches Made: Each combination of words (original, synonyms, and corrected) can lead to a search, so we multiply the above result by the number of searches made, 'm'.
-# 
-# This equation assumes that:
-# 
-# Each word is independent and can have 's' synonyms.
-# Each word can be corrected, leading to additional outcomes.
-# Each combination results in a unique search.
-# This model provides a basic understanding of the system's complexity. However, it's a simplified representation. In practice, the interaction between these variables can be more complex, especially if synonyms and corrections interrelate or if certain combinations of words lead to more or fewer searches.
-
-# ## Conclusion<a id="14"></a>
-# The program functions by generating synonyms for each input word and combining these to produce a set of results.  Its operational efficiency is directly tied to the input's complexity and the number of synonyms requested.  For instance, with a single-word input like "hello" having 10 synonyms, the result is straightforward: 10 synonyms plus the original word, yielding 11 outcomes.  However, the scaling becomes more significant with a two-word input such as "hello world".  Here, the program generates synonyms for each word, considering 10 synonyms for each, leading to a multiplication of possibilities.  The total results then become 10 synonyms for 'hello' times 10 for 'world', amounting to 100 combinations, plus 4 additional outcomes for the combination of original and synonymous words.
-# 
-# This illustrates the logarithmic growth in the program's output based on the inputs.  It's crucial to be aware of this exponential increase in results with the addition of more words and synonyms.  Such scaling can lead to a rapid escalation in the number of outcomes, potentially impacting the program's performance and mangeability of the results.  Users should exercise caution when increasing the number of input words and synonyms to avoid overwhelming system resources and to maintin practical usability of the output.
+# For n input words with k_i distinct choices each, the number of combinations is
+# the product of k_i. Building all tuples takes O(n * product(k_i)) time and memory;
+# the default 100-combination limit is checked before materializing that product.
+# Each resulting query may make an external search request. This is multiplicative
+# growth in the choices, not logarithmic growth.
