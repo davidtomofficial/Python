@@ -1,5 +1,8 @@
 ##### D. Tom 11/2023
 # <center> SynoSearcher: Article and Web Link Finder</center>
+
+> Historical learning project. See the [repository overview](../README.md), [contribution guide](../CONTRIBUTING.md), and [licensing notes](../README.md#license). The original notebook walkthrough and sample output are preserved below.
+
 <b>Task: </b>*This Python 3 program first collects a set of user-defined words, then uses the Natural Language Toolkit (NLTK) to find their synonyms. Subsequently, it searches for and outputs relevant articles and web links associated with these keywords and their synonyms, providing a comprehensive resource compilation related to the input terms*.
 
 ### Introduction

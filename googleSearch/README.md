@@ -1,19 +1,22 @@
  # googleSearch.py
 
+> Historical educational example. See the [repository overview](../README.md) for context and current documentation status.
+
+
 This repository contains a script to automate searches into the Google's Search Engine.
 These projects are intended to be an easy way to practice coding while requiring little to no knowledge of programming.
 Check the README.md files within each directory for more information.
 
 ## Getting Started
 
-Just clone/download the files and any dependencies for your project then run the script using the "python autoSearch.py".
+Just clone/download the files and any dependencies for your project then run the script using the "python3 googleSearch.py".
 
 *pipe searches using:
   - $ echo [search_term] | python3 googleSearch.py
   - **or**
   - $ echo [file.ext] | python3 googleSearch.py
 
-### Prerequisites
+### Historical prerequisites
 
 In order to run any Python based scripts you must first have installed Python as well as any dependencies for your project.
 You can download Python many various ways:
@@ -42,17 +45,17 @@ and restart your IDE.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/davidTom1194/davidTom1194/blob/main/CONTRIBUTING.md) for details on our
-code of conduct, and the process for submitting pull requests to us.
+See the repository-local [contribution guide](../CONTRIBUTING.md) for reporting issues and submitting focused pull requests while preserving the educational context.
 
 ## Authors
 
-* **David Tom** - *Initial Work* - [davidTom1194](https://github.com/davidTom1194)
-See also the list of [contributors](https://github.com/davidTom1194/davidTom1194/blob/main/contributors)
+* **David Tom** - *Initial Work* - [davidtomofficial](https://github.com/davidtomofficial)
+
+See this repository's [commit history](https://github.com/davidtomofficial/Python/commits/main/) for recorded changes. Additional authors and course-provided material remain credited in their respective files.
 
 ## License
 
-This project is licensed under the GNU General Public License Version 3 - see the [LICENSE](https://github.com/davidTom1194/davidTom1194/blob/main/LICENSE) file for details
+The notice in [googleSearch.py](googleSearch.py) permits GNU GPL version 3 or any later version. See the [repository licensing notes](../README.md#license) for the existing repository-level statement and pending documentation clarification.
 
 ## Acknowledgements
 
