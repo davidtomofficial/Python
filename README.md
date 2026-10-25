@@ -1,14 +1,19 @@
 # Python-Scripts
 
-This repository contains an assortment of python scripts based on Python 3.6  
-These projects are intended to be an easy way to practice coding while requiring little to no knowledge of programming.
-Check the README.md files within each directory for more information.
+Historical Python learning projects and experiments by [David Tom](https://github.com/davidtomofficial), preserved for educational reference and portfolio review.
+
+**Status: Historical educational examples.** The setup notes and project descriptions reflect the original work; compatibility and correctness have not been revalidated against current environments. This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings.
+
+## Projects
+
+- [SynonymSearcher](SynonymSearcher/README.md): a synonym-generation and web-search experiment with a notebook and Python export.
+- [googleSearch](googleSearch/README.md): an interactive web-search script.
 
 ## Getting Started
 
-Just clone/download the files and any dependencies for your project then run the script using the "python3 fileName.py".
+Clone or download this repository and read the selected project's README before installing dependencies. The original `googleSearch.py` header names Python 3.6; the SynonymSearcher notebook records Python 3.11.3. These are historical environment details, not a verified current compatibility range. Use the [SynonymSearcher notebook](SynonymSearcher/SynonymSearcher.ipynb) for that project; its `.py` export includes IPython-specific commands.
 
-### Prerequisites
+### Historical prerequisites
 
 In order to run any Python based scripts you must first have installed Python as well as any dependencies for your project.
 You can download Python many various ways:
@@ -25,7 +30,7 @@ Occasionally scripts may require dependencies; the easiest way to properly insta
  - thru the "git clone ssh://git@github.com/[username]/[repository-name].git" command.  Once downloaded, import the library
 and restart your IDE.
 
-### Example installation
+### Original installation outline
 
 1. Download python into an easily accesible directory
 2. Install as needed
@@ -37,17 +42,25 @@ and restart your IDE.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/davidTom1194/davidTom1194/blob/main/CONTRIBUTING.md) for details on our
-code of conduct, and the process for submitting pull requests to us.
+See the repository-local [contribution guide](CONTRIBUTING.md) for reporting issues and submitting focused pull requests while preserving the educational context.
 
 ## Authors
 
-* **David Tom** - *Initial Work* - [davidTom1194](https://github.com/davidTom1194)
-See also the list of [contributors](https://github.com/davidTom1194/davidTom1194/blob/main/contributors)
+* **David Tom** - *Initial Work* - [davidtomofficial](https://github.com/davidtomofficial)
+
+See this repository's [commit history](https://github.com/davidtomofficial/Python/commits/main/) for recorded changes. Additional authors and course-provided material remain credited in their respective files.
 
 ## License
 
-This project is licensed under the GNU General Public License Version 3 - see the [LICENSE](https://github.com/davidTom1194/davidTom1194/blob/main/LICENSE) file for details
+The existing licensing statement is retained:
+
+> This project is licensed under the GNU General Public License Version 3.
+
+Read the [GNU GPL version 3 text](https://www.gnu.org/licenses/gpl-3.0.html). This repository currently has no local `LICENSE` file. Earlier READMEs linked to a license in the separate GitHub profile repository; that file is not a project-local license.
+
+The notice in [googleSearch/googleSearch.py](googleSearch/googleSearch.py) explicitly permits GPL version 3 or any later version. That file-specific grant is unchanged.
+
+Existing file-specific notices and third-party attribution remain unchanged. The maintainer still needs to document the scope of the repository-level statement, confirm the version wording where file-specific notices do not already settle it, and add the appropriate local license text. This documentation update does not change existing licensing terms.
 
 ## Acknowledgements
 

@@ -1,7 +1,7 @@
 ################################################################################
 ##   googleSearch.py - Python 3.6                                             ##
 ##   August 2023 David Tom - David Tom                                        ##
-##   https://github.com/davidTom1194                                          ##
+##   https://github.com/davidtomofficial                                          ##
 ################################################################################
 ##   This program is free software: you can redistribute it and/or modify     ##
 ##   it under the terms of the GNU General Public License as published by     ##
