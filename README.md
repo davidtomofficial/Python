@@ -2,7 +2,7 @@
 
 Historical Python learning projects and experiments by [David Tom](https://github.com/davidtomofficial), preserved for educational reference and portfolio review.
 
-**Status: Historical educational examples.** The setup notes and project descriptions reflect the original work; compatibility and correctness have not been revalidated against current environments. This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings.
+**Status: Historical educational examples.** The setup notes and project descriptions reflect the original work; compatibility and correctness have not been revalidated against current environments.
 
 ## Projects
 
