@@ -2,7 +2,7 @@
 
 Historical Python learning projects and experiments by [David Tom](https://github.com/davidtomofficial), preserved for educational reference and portfolio review.
 
-**Status: Historical educational examples.** This collection is separate from current David Tom Solutions (DTS) and David Tom Publishing (DTP) offerings. Focused behavior fixes have offline regression coverage; live search-service compatibility and the installed third-party dependencies have not been validated end to end.
+**Status: Historical educational examples.** Focused behavior fixes have offline regression coverage; live search-service compatibility and the installed third-party dependencies have not been validated end to end.
 
 The original `googleSearch.py` header names Python 3.6; the SynonymSearcher notebook records Python 3.11.3. These remain historical environment details, not a verified current compatibility range.
 
