@@ -1,54 +1,33 @@
-# Python-Scripts
+# Python Learning Projects
 
-Historical Python learning projects and experiments by [David Tom](https://github.com/davidtomofficial), preserved for educational reference and portfolio review.
+**David Tom Official · Systems, Automation & Software**
 
-**Status: Historical educational examples.** The setup notes and project descriptions reflect the original work; compatibility and correctness have not been revalidated against current environments.
+[Profile](https://github.com/davidtomofficial) · [Portfolio](https://davidtomofficial.com/) · [Historical collection](https://github.com/davidtomofficial/academic-and-learning)
 
-## Projects
+Two early experiments with Python, notebooks and web-search libraries. I retain them as a record of independent learning; no course origin is established.
 
-- [SynonymSearcher](SynonymSearcher/README.md): a synonym-generation and web-search experiment with a notebook and Python export.
-- [googleSearch](googleSearch/README.md): an interactive web-search script.
+**Status: historical learning examples.** Current dependencies, external services and runtime behavior have not been revalidated.
 
-## Getting Started
+## Explore the projects
 
-Clone or download this repository and read the selected project's README before installing dependencies. The original `googleSearch.py` header names Python 3.6; the SynonymSearcher notebook records Python 3.11.3. These are historical environment details, not a verified current compatibility range. Use the [SynonymSearcher notebook](SynonymSearcher/SynonymSearcher.ipynb) for that project; its `.py` export includes IPython-specific commands.
+| Project | Learning focus | Start here |
+| --- | --- | --- |
+| SynonymSearcher | Synonym generation and web-search exploration | [Project guide](SynonymSearcher/README.md) · [Notebook](SynonymSearcher/SynonymSearcher.ipynb) |
+| googleSearch | Interactive search terms and web-search scripting | [Project guide](googleSearch/README.md) · [Source](googleSearch/googleSearch.py) |
 
-### Historical prerequisites
+## Review the source
 
-In order to run any Python based scripts you must first have installed Python as well as any dependencies for your project.
-You can download Python many various ways:
-1. Python's website: https://www.python.org/
-2. Repository: Most if not all linux distros have a repository containing python that can be accessed using the below
-example commands (more information can be found by accessing the manual/help page for your operating system):
- - For Debian/GNU Linux: $ sudo apt-get install python36
- - RedHat: $ sudo yum install python36
+1. Read the selected project guide and its imports before preparing an environment.
+2. Start with the SynonymSearcher notebook. Its [Python export](SynonymSearcher/SynonymSearcher.py) contains IPython-specific commands and is not presented as a standalone script.
+3. Check the project's recorded dependencies and external-service assumptions before attempting to run it.
 
-Occasionally scripts may require dependencies; the easiest way to properly install them is by:
-1. Searching github repositories and clone/download the appropriate .zip for your project.  This can be done in
- - a web browser
- - **or**
- - thru the "git clone ssh://git@github.com/[username]/[repository-name].git" command.  Once downloaded, import the library
-and restart your IDE.
+The `googleSearch.py` header names Python 3.6; the SynonymSearcher notebook records Python 3.11.3. These describe the original environments, not a verified current support range. [Earlier setup notes](https://github.com/davidtomofficial/Python/blob/16200d10e41010ae04567db2d468329ad46f7977/README.md#getting-started) remain available in history.
 
-### Original installation outline
+## Context and contributions
 
-1. Download python into an easily accesible directory
-2. Install as needed
-3. Import any libraries/dependencies for your project (most if not all projects will state this in the first few lines)
-4. Clone the files from the repository.
-5. Upload the code to your Device (Laptop, Raspberry Pi, Desktop, etc.).
-6. Contribute to further developments.
-7. Repeat as needed!
+The [project index](https://github.com/davidtomofficial/davidtomofficial/blob/main/academic-and-learning/README.md#independent-learning) records the original dates and source snapshots. For current Windows tooling, visit [Windows System Administration](https://github.com/davidtomofficial/Windows-System-Administration).
 
-## Contributing
-
-See the repository-local [contribution guide](CONTRIBUTING.md) for reporting issues and submitting focused pull requests while preserving the educational context.
-
-## Authors
-
-* **David Tom** - *Initial Work* - [davidtomofficial](https://github.com/davidtomofficial)
-
-See this repository's [commit history](https://github.com/davidtomofficial/Python/commits/main/) for recorded changes. Additional authors and course-provided material remain credited in their respective files.
+Original work by [David Tom](https://github.com/davidtomofficial). See the [commit history](https://github.com/davidtomofficial/Python/commits/main/) for recorded changes and the [contribution guide](CONTRIBUTING.md) for focused corrections. Existing file-level authorship and attribution remain applicable.
 
 ## License
 
@@ -61,7 +40,3 @@ Read the [GNU GPL version 3 text](https://www.gnu.org/licenses/gpl-3.0.html). Th
 The notice in [googleSearch/googleSearch.py](googleSearch/googleSearch.py) explicitly permits GPL version 3 or any later version. That file-specific grant is unchanged.
 
 Existing file-specific notices and third-party attribution remain unchanged. The maintainer still needs to document the scope of the repository-level statement, confirm the version wording where file-specific notices do not already settle it, and add the appropriate local license text. This documentation update does not change existing licensing terms.
-
-## Acknowledgements
-
-* A big thanks to any and all contributors, no matter how big or small the contribution it all helps.
